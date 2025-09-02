@@ -7,7 +7,7 @@ import {
   Github,
   Instagram,
   Youtube,
-  LucideProps,
+  type LucideProps,
 } from 'lucide-react';
 import {
   type NavItem,
@@ -17,11 +17,10 @@ import {
   type Skill,
   type BlogPost,
 } from '@/lib/types';
-import DiscordIcon from '@/components/icons/discord-icon';
-import { SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiFigma, SiPython } from '@icons-pack/react-simple-icons';
+import { SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiFigma, SiPython, SiDiscord } from '@icons-pack/react-simple-icons';
 import React from 'react';
 
-export const name = 'Ethereal Folio';
+export const name = 'Barshan';
 
 export const navItems: NavItem[] = [
   { name: 'Home', href: '/', icon: Home },
@@ -34,7 +33,7 @@ export const navItems: NavItem[] = [
 export const socialLinks: SocialLink[] = [
   { name: 'GitHub', icon: Github, url: 'https://github.com' },
   { name: 'Instagram', icon: Instagram, url: 'https://instagram.com' },
-  { name: 'Discord', icon: DiscordIcon, url: '#' },
+  { name: 'Discord', icon: (props: LucideProps) => React.createElement(SiDiscord, props), url: '#' },
   { name: 'Email', icon: Mail, url: 'mailto:hello@example.com' },
   { name: 'YouTube', icon: Youtube, url: 'https://youtube.com' },
 ];

@@ -1,4 +1,5 @@
-import type { LucideIcon } from 'lucide-react';
+import type { LucideIcon, LucideProps } from 'lucide-react';
+import React from 'react';
 
 export interface NavItem {
   name: string;
@@ -8,7 +9,7 @@ export interface NavItem {
 
 export interface SocialLink {
   name: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<LucideProps>;
   url: string;
 }
 
@@ -31,7 +32,7 @@ export interface EducationItem {
 export interface Skill {
   name: string;
   experience: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<LucideProps>;
 }
 
 export interface BlogPost {
