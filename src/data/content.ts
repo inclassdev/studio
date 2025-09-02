@@ -139,14 +139,14 @@ export const education: EducationItem[] = [
 ];
 
 export const skills: Skill[] = [
-  { name: 'JavaScript', experience: '4 years', icon: props => React.createElement(SiJavascript, { ...props, className: 'size-10' }) },
-  { name: 'TypeScript', experience: '3 years', icon: props => React.createElement(SiTypescript, { ...props, className: 'size-10' }) },
-  { name: 'React', experience: '3 years', icon: props => React.createElement(SiReact, { ...props, className: 'size-10' }) },
-  { name: 'Next.js', experience: '2 years', icon: props => React.createElement(SiNextdotjs, { ...props, className: 'size-10' }) },
-  { name: 'Node.js', experience: '3 years', icon: props => React.createElement(SiNodedotjs, { ...props, className: 'size-10' }) },
-  { name: 'Tailwind CSS', experience: '2 years', icon: props => React.createElement(SiTailwindcss, { ...props, className: 'size-10' }) },
-  { name: 'Figma', experience: '3 years', icon: props => React.createElement(SiFigma, { ...props, className: 'size-10' }) },
-  { name: 'Python', experience: '2 years', icon: props => React.createElement(SiPython, { ...props, className: 'size-10' }) },
+  { name: 'JavaScript', experience: '4 years', icon: (props: LucideProps) => React.createElement(SiJavascript, { ...props, className: 'size-10' }) },
+  { name: 'TypeScript', experience: '3 years', icon: (props: LucideProps) => React.createElement(SiTypescript, { ...props, className: 'size-10' }) },
+  { name: 'React', experience: '3 years', icon: (props: LucideProps) => React.createElement(SiReact, { ...props, className: 'size-10' }) },
+  { name: 'Next.js', experience: '2 years', icon: (props: LucideProps) => React.createElement(SiNextdotjs, { ...props, className: 'size-10' }) },
+  { name: 'Node.js', experience: '3 years', icon: (props: LucideProps) => React.createElement(SiNodedotjs, { ...props, className: 'size-10' }) },
+  { name: 'Tailwind CSS', experience: '2 years', icon: (props: LucideProps) => React.createElement(SiTailwindcss, { ...props, className: 'size-10' }) },
+  { name: 'Figma', experience: '3 years', icon: (props: LucideProps) => React.createElement(SiFigma, { ...props, className: 'size-10' }) },
+  { name: 'Python', experience: '2 years', icon: (props: LucideProps) => React.createElement(SiPython, { ...props, className: 'size-10' }) },
 ];
 
 export const blogPosts: BlogPost[] = [
