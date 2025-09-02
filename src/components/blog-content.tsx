@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
 import BlogCard from './blog-card';
 import { Skeleton } from './ui/skeleton';
+import type { BlogPost } from '@/lib/types';
+import BlogModal from './blog-modal';
 
 const categories = ['All', 'Tech', 'Design', 'Life', 'AI'];
 
@@ -14,6 +16,7 @@ export default function BlogContent() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('All');
   const [loading, setLoading] = useState(true);
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
 
   // Simulate loading
   useState(() => {
@@ -63,7 +66,7 @@ export default function BlogContent() {
               <Skeleton className="h-full w-full" />
             </div>
           ) : (
-            <BlogCard key={post.id} post={post} />
+            <BlogCard key={post.id} post={post} onReadMore={() => setSelectedPost(post)} />
           )
         )}
       </div>
@@ -72,6 +75,7 @@ export default function BlogContent() {
           <p>No articles found. Try a different search or filter.</p>
         </div>
       )}
+      <BlogModal post={selectedPost} onClose={() => setSelectedPost(null)} />
     </div>
   );
 }

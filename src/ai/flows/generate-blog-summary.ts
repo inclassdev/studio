@@ -19,7 +19,7 @@ const GenerateBlogSummaryInputSchema = z.object({
 export type GenerateBlogSummaryInput = z.infer<typeof GenerateBlogSummaryInputSchema>;
 
 const GenerateBlogSummaryOutputSchema = z.object({
-  summary: z.string().describe('A short summary of the blog post.'),
+  summary: z.string().describe('A two-sentence summary of the blog post.'),
 });
 export type GenerateBlogSummaryOutput = z.infer<typeof GenerateBlogSummaryOutputSchema>;
 
@@ -31,7 +31,7 @@ const prompt = ai.definePrompt({
   name: 'generateBlogSummaryPrompt',
   input: {schema: GenerateBlogSummaryInputSchema},
   output: {schema: GenerateBlogSummaryOutputSchema},
-  prompt: `You are an expert blog summarizer.  Please summarize the following blog post in a single paragraph.\n\nBlog Post:\n\n{{{blogContent}}}`,
+  prompt: `You are an expert blog summarizer. Please summarize the following blog post in two sentences.\n\nBlog Post:\n\n{{{blogContent}}}`,
 });
 
 const generateBlogSummaryFlow = ai.defineFlow(
