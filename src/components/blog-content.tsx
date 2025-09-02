@@ -37,7 +37,7 @@ export default function BlogContent() {
     <div className="container mx-auto max-w-6xl">
       <div className="mb-8 flex flex-col gap-4 sm:flex-row">
         <div className="relative flex-grow">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             type="text"
             placeholder="Search articles..."
