@@ -3,6 +3,7 @@
 import { education, skills } from '@/data/content';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { GraduationCap } from 'lucide-react';
 
 export default function EducationContent() {
   return (
@@ -11,39 +12,30 @@ export default function EducationContent() {
         <div>
           <h2 className="mb-8 text-center text-3xl font-bold tracking-tight">Education</h2>
           <div className="relative">
-            <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-border" aria-hidden="true" />
-            {education.map((item, index) => (
-              <div key={item.institution} className="group relative mb-8 flex items-center">
-                <div className={`flex w-1/2 pr-8 text-right ${index % 2 === 0 ? 'justify-end' : ''}`}>
-                  {index % 2 === 0 && (
-                     <Card className="hidden lg:block bg-card/50 backdrop-blur-sm transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/20">
+            <div className="absolute left-5 top-0 h-full w-0.5 -translate-x-1/2 bg-border" aria-hidden="true" />
+            <div className="space-y-8">
+              {education.map((item) => (
+                <div key={item.institution} className="relative flex items-start gap-6">
+                  <div className="z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-primary bg-background">
+                    <GraduationCap className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex-grow">
+                    <Card className="bg-card/50 backdrop-blur-sm transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/20">
                       <CardHeader>
-                        <CardTitle className="text-base">{item.degree}</CardTitle>
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-lg">{item.degree}</CardTitle>
+                          <p className="text-sm text-muted-foreground">{item.date}</p>
+                        </div>
                         <p className="text-sm font-normal text-muted-foreground">{item.institution}</p>
                       </CardHeader>
                       <CardContent>
                         <p className="text-sm">{item.description}</p>
                       </CardContent>
                     </Card>
-                  )}
-                </div>
-                <div className="absolute left-1/2 top-1/2 z-10 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-primary bg-background transition-all group-hover:scale-125 group-hover:bg-primary" />
-                <div className={`w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:pl-8' : 'lg:pr-8 lg:text-right'}`}>
-                  <p className="mb-2 text-sm text-muted-foreground lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:bg-background lg:px-2">{item.date}</p>
-                  <div className={`${index % 2 !== 0 ? 'hidden lg:block' : 'lg:hidden'}`}>
-                    <Card className="bg-card/50 backdrop-blur-sm transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/20">
-                        <CardHeader>
-                          <CardTitle className="text-base">{item.degree}</CardTitle>
-                          <p className="text-sm font-normal text-muted-foreground">{item.institution}</p>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-sm">{item.description}</p>
-                        </CardContent>
-                      </Card>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
@@ -56,7 +48,7 @@ export default function EducationContent() {
                   <TooltipTrigger asChild>
                     <div className="group flex flex-col items-center gap-2 rounded-lg bg-card/50 p-4 backdrop-blur-sm transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
                       <skill.icon className="h-10 w-10 text-muted-foreground transition-colors group-hover:text-primary" />
-                      <p className="text-xs text-center text-foreground">{skill.name}</p>
+                      <p className="text-center text-xs text-foreground">{skill.name}</p>
                     </div>
                   </TooltipTrigger>
                   <TooltipContent>
