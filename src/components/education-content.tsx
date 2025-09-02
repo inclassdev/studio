@@ -14,9 +14,9 @@ export default function EducationContent() {
             <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-border" aria-hidden="true" />
             {education.map((item, index) => (
               <div key={item.institution} className="group relative mb-8 flex items-center">
-                <div className="hidden lg:flex lg:w-1/2 pr-8 justify-end text-right">
+                <div className={`flex w-1/2 pr-8 text-right ${index % 2 === 0 ? 'justify-end' : ''}`}>
                   {index % 2 === 0 && (
-                    <Card className="bg-card/50 backdrop-blur-sm transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/20">
+                     <Card className="hidden lg:block bg-card/50 backdrop-blur-sm transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/20">
                       <CardHeader>
                         <CardTitle className="text-base">{item.degree}</CardTitle>
                         <p className="text-sm font-normal text-muted-foreground">{item.institution}</p>
@@ -28,20 +28,9 @@ export default function EducationContent() {
                   )}
                 </div>
                 <div className="absolute left-1/2 top-1/2 z-10 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-primary bg-background transition-all group-hover:scale-125 group-hover:bg-primary" />
-                <div className="w-full lg:w-1/2 lg:pl-8">
+                <div className={`w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:pl-8' : 'lg:pr-8 lg:text-right'}`}>
                   <p className="mb-2 text-sm text-muted-foreground lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:bg-background lg:px-2">{item.date}</p>
-                   {index % 2 !== 0 && (
-                    <Card className="bg-card/50 backdrop-blur-sm transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/20">
-                      <CardHeader>
-                        <CardTitle className="text-base">{item.degree}</CardTitle>
-                        <p className="text-sm font-normal text-muted-foreground">{item.institution}</p>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm">{item.description}</p>
-                      </CardContent>
-                    </Card>
-                  )}
-                  <div className="lg:hidden">
+                  <div className={`${index % 2 !== 0 ? 'hidden lg:block' : 'lg:hidden'}`}>
                     <Card className="bg-card/50 backdrop-blur-sm transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/20">
                         <CardHeader>
                           <CardTitle className="text-base">{item.degree}</CardTitle>
@@ -65,7 +54,7 @@ export default function EducationContent() {
               {skills.map((skill) => (
                 <Tooltip key={skill.name}>
                   <TooltipTrigger asChild>
-                    <div className="flex flex-col items-center gap-2 rounded-lg bg-card/50 p-4 backdrop-blur-sm transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+                    <div className="group flex flex-col items-center gap-2 rounded-lg bg-card/50 p-4 backdrop-blur-sm transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
                       <skill.icon className="h-10 w-10 text-muted-foreground transition-colors group-hover:text-primary" />
                       <p className="text-xs text-center text-foreground">{skill.name}</p>
                     </div>
